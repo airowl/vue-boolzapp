@@ -55,13 +55,14 @@
 
                     </div>
                     <ul class="user-list">
-                        <li class="user d-flex justify-content-between">
+                        <!-- template degli utenti -->
+                        <li class="user d-flex justify-content-between" v-for="(element, index) in contacts">
                             <div class="single-user d-flex">
                                 <div class="user-img">
-                                    <img src="img/avatar_1.jpg" alt="immagine avatar 1">
+                                    <img :src="'img/avatar' + element.avatar + '.jpg'" alt="immagine avatar 1">
                                 </div>
                                 <div class="user-text">
-                                    <p>Michele</p>
+                                    <p>{{element.name}}</p>
                                     <p class="last-input">Ultimo messaggio inviato</p>
                                 </div>
                             </div>
