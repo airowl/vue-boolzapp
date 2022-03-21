@@ -18,8 +18,22 @@ ul li{
     list-style-type: none;
 }
 
+img{
+    width: 100%;
+    height: 100%;
+}
+
+i{
+    color: grey;
+    font-size: 1.2rem;
+}
+
 .d-flex{
     display: flex;
+}
+
+.align-items-center{
+    align-items: center;
 }
 
 .container{
@@ -45,6 +59,7 @@ ul li{
     border: 1px solid violet;
     justify-content: space-between;
     align-items: center;
+    padding: .5rem;
 }
 
 .popup-notification{
@@ -80,8 +95,41 @@ ul li{
     border: 1px solid salmon;
 }
 
-.box{
-    width: 30%;
-    height: 100rem;
-    background-color: black;
+.user-picture{
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.icons-user > i:nth-child(2){
+    margin: 0 1rem;
+}
+
+.popup-notification{
+    background-color: #8edafc;
+    padding: 0 .5rem;
+}
+
+.icon-popup{
+    width: 3rem;
+    height: 3rem;
+    background-color: white;
+    border-radius: 50%;
+    text-align: center;
+    padding: .7rem;
+}
+
+.icon-popup > i{
+    color: #8edafc;
+}
+
+.second-text{
+    text-decoration: underline;
+    color: grey;
+    font-size: .8rem;
+}
+
+.desc-popup{
+    margin-left: 1rem;
 }
