@@ -142,6 +142,11 @@ i{
     width: 100%;
     height: 5rem;
     padding: 1rem 1rem;
+    cursor: pointer;
+}
+
+.user:hover{
+    background-color: rgb(202, 202, 202);
 }
 
 .user-img{
@@ -162,4 +167,17 @@ i{
 
 .user-time{
     font-size: .7rem;
+}
+
+.user-img,
+.user-text{
+    display: inline-block;
+}
+
+.current-user-view{
+    display: none;
+}
+
+.d-block{
+    display: flex;
 }

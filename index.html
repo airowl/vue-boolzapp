@@ -56,7 +56,7 @@
                     </div>
                     <ul class="user-list">
                         <!-- template degli utenti -->
-                        <li class="user d-flex justify-content-between" v-for="(element, index) in contacts">
+                        <li class="user d-flex justify-content-between" v-for="(element, index) in contacts" @click="clickToView(index)">
                             <div class="single-user d-flex">
                                 <div class="user-img">
                                     <img :src="'img/avatar' + element.avatar + '.jpg'" alt="immagine avatar 1">
@@ -74,10 +74,25 @@
                 </div>
             </div>
             <div class="col-right">
+                <!-- Users interface chat -->
                 <div class="top-bar d-flex">
-                    <p>user chat</p>
-                    <p>icons</p>
+                    <div class="current-user-view" v-for="(element, index) in contacts" :class="(element.visible === true) ? 'd-block' : ''" v-if="element.visible === true">
+                        <div class="user-img">
+                            <img :src="'img/avatar' + element.avatar + '.jpg'" alt="immagine avatar 1">
+                        </div>
+                        <div class="user-text">
+                            <p>Name</p>
+                            <p class="last-input">Ultimo messaggio inviato</p>
+                        </div>
+                    </div>
+                    <div class="icons-user">
+                        <i class="fa-solid fa-circle-notch"></i>
+                        <i class="fa-solid fa-message"></i>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </div>
                 </div>
+                
+            
                 <div class="current-chat">
                     
                 </div>
