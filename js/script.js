@@ -184,6 +184,15 @@ const app = new Vue({
             }
             this.contacts[index].messages.push(messageObject);
             this.currentMessage = '';
+
+            setTimeout(() =>{
+                const messageObjectBot = {
+                    date: '10/01/2020 15:50:00',
+                    message: 'OK!',
+                    status: 'received'
+                }
+                this.contacts[index].messages.push(messageObjectBot);
+            }, 1000);
         }
     }
 });
