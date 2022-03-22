@@ -3,11 +3,12 @@
 const app = new Vue({
     el: '#app',
     data: {
+        activeElement: 0,
         contacts: [
             {
                 name: 'Michele',
                 avatar: '_1',
-                visible: true,
+                visible: false,
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -29,7 +30,7 @@ const app = new Vue({
             {
                 name: 'Fabio',
                 avatar: '_2',
-                visible: false,
+                visible: true,
                 messages: [
                     {
                         date: '20/03/2020 16:30:00',
@@ -51,7 +52,7 @@ const app = new Vue({
             {
                 name: 'Samuele',
                 avatar: '_3',
-                visible: false,
+                visible: true,
                 messages: [
                     {
                         date: '28/03/2020 10:10:40',
@@ -73,7 +74,7 @@ const app = new Vue({
             {
                 name: 'Alessandro B.',
                 avatar: '_4',
-                visible: false,
+                visible: true,
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -90,7 +91,7 @@ const app = new Vue({
             {
                 name: 'Alessandro L.',
                 avatar: '_5',
-                visible: false,
+                visible: true,
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -107,7 +108,7 @@ const app = new Vue({
             {
                 name: 'Claudia',
                 avatar: '_6',
-                visible: false,
+                visible: true,
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -129,7 +130,7 @@ const app = new Vue({
             {
                 name: 'Federico',
                 avatar: '_7',
-                visible: false,
+                visible: true,
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -146,7 +147,7 @@ const app = new Vue({
             {
                 name: 'Davide',
                 avatar: '_8',
-                visible: false,
+                visible: true,
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -170,8 +171,16 @@ const app = new Vue({
     },
     methods: {
         clickToView(index){
-            this.contacts[index].visible = true;
-            console.log(this.contacts[index].visible);
+            this.contacts.forEach(element => {
+                element.visible = true;
+            });
+            this.contacts[index].visible = false;
         }
     }
 });
+
+/**
+ * al click:
+ * il precedente diventa visible: true,
+ * quello cliccato diventa visible: false
+ */

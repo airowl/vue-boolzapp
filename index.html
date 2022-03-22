@@ -80,7 +80,7 @@
                     <!-- USER LIST -->
                     <ul class="user-list">
                         <!-- template for the users -->
-                        <li class="user d-flex justify-content-between" :class="(element.visible === true) ? 'active' : ''" v-for="(element, index) in contacts" @click="clickToView(index)">
+                        <li class="user d-flex justify-content-between" :class="(element.visible === false) ? 'active' : ''" v-for="(element, index) in contacts" @click="clickToView(index)">
                             <!-- chat user -->
                             <div class="single-user d-flex">
                                 <!-- image user -->
@@ -108,7 +108,7 @@
                 <!-- Users interface chat -->
                 <header class="top-bar d-flex">
                     <!-- user profile viewed -->
-                    <div class="current-user-view" :class="(element.visible === true) ? 'd-block' : ''" v-for="(element, index) in contacts" v-if="element.visible === true">
+                    <div class="current-user-view" :class="(element.visible === false) ? 'd-block' : ''" v-for="(element, index) in contacts" v-if="element.visible === false">
                         <!-- user image -->
                         <div class="user-img">
                             <img :src="'img/avatar' + element.avatar + '.jpg'" alt="immagine avatar 1">
