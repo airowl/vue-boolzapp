@@ -3,7 +3,7 @@
 const app = new Vue({
     el: '#app',
     data: {
-        activeElement: 0,
+        currentMessage: '',
         contacts: [
             {
                 name: 'Michele',
@@ -175,6 +175,15 @@ const app = new Vue({
                 element.visible = true;
             });
             this.contacts[index].visible = false;
+        },
+        sendMessage(index){
+            const messageObject = {
+                date: '10/01/2020 15:50:00',
+                message: this.currentMessage,
+                status: 'sent'
+            }
+            this.contacts[index].messages.push(messageObject);
+            this.currentMessage = '';
         }
     }
 });

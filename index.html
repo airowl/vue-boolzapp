@@ -104,11 +104,11 @@
             </section>
 
             <!-- MESSAGES VIEWED -->
-            <section class="col-right">
+            <section class="col-right" v-for="(element, index) in contacts" v-if="element.visible === false">
                 <!-- Users interface chat -->
                 <header class="top-bar d-flex">
                     <!-- user profile viewed -->
-                    <div class="current-user-view" :class="(element.visible === false) ? 'd-block' : ''" v-for="(element, index) in contacts" v-if="element.visible === false">
+                    <div class="current-user-view" :class="(element.visible === false) ? 'd-block' : ''" >
                         <!-- user image -->
                         <div class="user-img">
                             <img :src="'img/avatar' + element.avatar + '.jpg'" alt="immagine avatar 1">
@@ -129,7 +129,7 @@
                 
                 <!-- main chat -->
                 <main class="current-chat">
-                    <div class="all-messages" v-for="(element, index) in contacts" v-if="element.visible === false">
+                    <div class="all-messages" v-if="element.visible === false">
 
                         <div class="d-flex" :class="(messagesElement.status === 'sent') ? 'row-send' : 'row-receive'" v-for="(messagesElement, index) in element.messages">
                             <div class="message" :class="(messagesElement.status === 'sent') ? 'send' : ''">
@@ -146,7 +146,7 @@
                 <!-- footer input message -->
                 <footer class="bottom-input d-flex align-items-center">
                     <i class="fa-regular fa-face-smile"></i>
-                    <input type="text" placeholder="Scrivi un messaggio">
+                    <input type="text" placeholder="Scrivi un messaggio" v-model="currentMessage" @keydown.enter="sendMessage(index)">
                     <i class="fa-solid fa-microphone"></i>
                 </footer>
 
