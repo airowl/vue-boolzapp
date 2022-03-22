@@ -164,12 +164,16 @@ i{
     margin-left: 1rem;
 }
 
-.user{
+li.user{
     width: 100%;
     height: 5rem;
     padding: 1rem 1rem;
     cursor: pointer;
     border-bottom: 1px solid #e9ebeb;
+}
+
+li.user.active{
+    background-color: #e9ebeb;
 }
 
 .user:hover{

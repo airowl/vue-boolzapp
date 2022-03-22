@@ -34,7 +34,7 @@
                     <!-- current user profile -->
                     <div class="current-user d-flex align-items-center">
                         <div class="user-picture">
-                            <img src="img/avatar_1.jpg" alt="Current user image">
+                            <img src="img/avatar_io.jpg" alt="Current user image">
                         </div>
                         <div class="user-name">
                             Sofia
@@ -80,7 +80,7 @@
                     <!-- USER LIST -->
                     <ul class="user-list">
                         <!-- template for the users -->
-                        <li class="user d-flex justify-content-between" v-for="(element, index) in contacts" @click="clickToView(index)">
+                        <li class="user d-flex justify-content-between" :class="(element.visible === true) ? 'active' : ''" v-for="(element, index) in contacts" @click="clickToView(index)">
                             <!-- chat user -->
                             <div class="single-user d-flex">
                                 <!-- image user -->
