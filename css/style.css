@@ -103,6 +103,7 @@ i{
     height: 84%;
     overflow-y: scroll;
     background-image: url(../img/mine.jpg);
+    padding: 3rem 6rem;
 }
 
 .bottom-input{
@@ -212,4 +213,34 @@ li.user.active{
 .d-block{
     display: flex;
     align-items: center;
+}
+
+.row-send{
+    flex-direction: row-reverse;
+}
+
+.row-receive{
+    flex-direction: row;
+}
+
+.message{
+    position: relative;
+    background-color: white;
+    width: 18rem;
+    padding: 1rem;
+    font-size: .8rem;
+    border-radius: .6rem;
+    margin-bottom: .6rem;
+}
+
+.send{
+    background-color: #d5f9ba;
+}
+
+.time-message{
+    position: absolute;
+    bottom: .3rem;
+    right: .3rem;
+    font-size: .5rem;
+    color: grey;
 }
