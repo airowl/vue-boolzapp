@@ -129,31 +129,17 @@
                 
                 <!-- main chat -->
                 <main class="current-chat">
-                    <div class="all-messages">
-                        <div class="row-send d-flex">
-                            <div class="message send">
-                                <p>Hai portato a spasso il cane?</p>
+                    <div class="all-messages" v-for="(element, index) in contacts" v-if="element.visible === false">
+
+                        <div class="d-flex" :class="(messagesElement.status === 'sent') ? 'row-send' : 'row-receive'" v-for="(messagesElement, index) in element.messages">
+                            <div class="message" :class="(messagesElement.status === 'sent') ? 'send' : ''">
+                                <p>{{messagesElement.message}}</p>
                                 <div class="time-message">
-                                    16:15
+                                    {{messagesElement.date}}
                                 </div>
                             </div>
                         </div>
-                        <div class="row-send d-flex">
-                            <div class="message send">
-                                <p>Ricordati di stendere i panni</p>
-                                <div class="time-message">
-                                    16:15
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row-receive d-flex">
-                            <div class="message">
-                                <p>Tutto fatto!</p>
-                                <div class="time-message">
-                                    16:15
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
                 </main>
 
