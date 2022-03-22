@@ -4,6 +4,7 @@ const app = new Vue({
     el: '#app',
     data: {
         currentMessage: '',
+        searchContact: '',
         contacts: [
             {
                 name: 'Michele',
@@ -193,12 +194,16 @@ const app = new Vue({
                 }
                 this.contacts[index].messages.push(messageObjectBot);
             }, 1000);
+        },
+        searchUserContact(){
+            return this.contacts.filter(element => {
+                return element.name.toLowerCase().includes(this.searchContact);
+            });
         }
     }
 });
 
 /**
- * al click:
- * il precedente diventa visible: true,
- * quello cliccato diventa visible: false
+ * quando digito
+ * la funziona deve fare un check se l'input che ho scritto si trova nell'array
  */
