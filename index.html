@@ -25,8 +25,13 @@
 
     <main id="app">
         <div class="container d-flex">
-            <div class="col-left">
-                <div class="top-bar d-flex">
+            <!-- SIDEBAR LEFT -->
+            <section class="col-left">
+
+                <!-- CURRENT USER -->
+                <header class="top-bar d-flex">
+
+                    <!-- current user profile -->
                     <div class="current-user d-flex align-items-center">
                         <div class="user-picture">
                             <img src="img/avatar_1.jpg" alt="Current user image">
@@ -35,73 +40,104 @@
                             Sofia
                         </div>
                     </div>
+
+                    <!-- icons for current user -->
                     <div class="icons-user">
                         <i class="fa-solid fa-circle-notch"></i>
                         <i class="fa-solid fa-message"></i>
                         <i class="fa-solid fa-ellipsis-vertical"></i>
                     </div>
-                </div>
+
+                </header>
+
+                <!-- NOTIFICATION FOR DESKTOP -->
                 <div class="popup-notification d-flex align-items-center">
+
+                    <!-- icon -->
                     <div class="icon-popup">
                         <i class="fa-solid fa-bell-slash"></i>
                     </div>
-                    <div class="desc-popup">
+
+                    <!-- text popup -->
+                    <div class="text-popup">
                         <p>Ricevi notifiche di nuovi messaggi</p>
                         <p class="second-text">Attiva notifiche desktop</p>
                     </div>
-                </div>
-                <div class="users-chat">
-                    <div class="search">
 
+                </div>
+
+                <!-- DYNAMIC SECTION -->
+                <div class="users-chat">
+
+                    <!-- SEARCH BAR -->
+                    <div class="search">
+                        <span></span>
+                        <input type="text" placeholder="Cerca o inizia una nuova chat">
                     </div>
+
+                    <!-- USER LIST -->
                     <ul class="user-list">
-                        <!-- template degli utenti -->
+                        <!-- template for the users -->
                         <li class="user d-flex justify-content-between" v-for="(element, index) in contacts" @click="clickToView(index)">
+                            <!-- chat user -->
                             <div class="single-user d-flex">
+                                <!-- image user -->
                                 <div class="user-img">
                                     <img :src="'img/avatar' + element.avatar + '.jpg'" alt="immagine avatar 1">
                                 </div>
+                                <!-- name and last message sent -->
                                 <div class="user-text">
                                     <p>{{element.name}}</p>
                                     <p class="last-input">Ultimo messaggio inviato</p>
                                 </div>
                             </div>
+                            <!-- user time -->
                             <div class="user-time">
                                 12:00
                             </div>
                         </li>
                     </ul>
+
                 </div>
-            </div>
-            <div class="col-right">
+            </section>
+
+            <!-- MESSAGES VIEWED -->
+            <section class="col-right">
                 <!-- Users interface chat -->
-                <div class="top-bar d-flex">
-                    <div class="current-user-view" v-for="(element, index) in contacts" :class="(element.visible === true) ? 'd-block' : ''" v-if="element.visible === true">
+                <header class="top-bar d-flex">
+                    <!-- user profile viewed -->
+                    <div class="current-user-view" :class="(element.visible === true) ? 'd-block' : ''" v-for="(element, index) in contacts" v-if="element.visible === true">
+                        <!-- user image -->
                         <div class="user-img">
                             <img :src="'img/avatar' + element.avatar + '.jpg'" alt="immagine avatar 1">
                         </div>
+                        <!-- name and last access -->
                         <div class="user-text">
                             <p>Name</p>
                             <p class="last-input">Ultimo messaggio inviato</p>
                         </div>
                     </div>
+                    <!-- icons -->
                     <div class="icons-user">
                         <i class="fa-solid fa-circle-notch"></i>
                         <i class="fa-solid fa-message"></i>
                         <i class="fa-solid fa-ellipsis-vertical"></i>
                     </div>
-                </div>
+                </header>
                 
-            
-                <div class="current-chat">
+                <!-- main chat -->
+                <main class="current-chat">
                     
-                </div>
-                <div class="bottom-input d-flex">
+                </main>
+
+                <!-- footer input message -->
+                <footer class="bottom-input d-flex">
                     <p>icon emoji</p>
                     <input type="text">
                     <p>icon vocal</p>
-                </div>
-            </div>
+                </footer>
+
+            </section>
         </div>
     </main>
     
