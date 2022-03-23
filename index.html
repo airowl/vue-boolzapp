@@ -80,7 +80,7 @@
                     <!-- USER LIST -->
                     <ul class="user-list">
                         <!-- template for the users -->
-                        <li class="user d-flex justify-content-between" :class="(element.visible === false) ? 'active' : ''" v-for="(element, index) in searchUserContact()" @click="clickToView(index)">
+                        <li class="user d-flex justify-content-between" :class="(activeElement === index) ? 'active' : ''" v-for="(element, index) in searchUserContact()" @click="clickToView(index)">
                             <!-- chat user -->
                             <div class="single-user d-flex">
                                 <!-- image user -->
@@ -104,18 +104,29 @@
             </section>
 
             <!-- MESSAGES VIEWED -->
-            <section class="col-right" v-for="(element, index) in contacts" v-if="element.visible === false">
+            <section class="col-right">
                 <!-- Users interface chat -->
                 <header class="top-bar d-flex">
                     <!-- user profile viewed -->
-                    <div class="current-user-view" :class="(element.visible === false) ? 'd-block' : ''" >
+                    <div class="current-user-view" :class="(activeElement === index) ? 'd-block' : ''" v-for="(element, index) in contacts" v-if="activeElement === index">
                         <!-- user image -->
                         <div class="user-img">
-                            <img :src="'img/avatar' + element.avatar + '.jpg'" alt="immagine avatar 1">
+                            <img :src="'img/avatar' + element.avatar + '.jpg'" alt="'immagine avatar' + element.name">
                         </div>
                         <!-- name and last access -->
                         <div class="user-text">
                             <p>{{element.name}}</p>
+                            <p class="last-input">Ultimo messaggio inviato</p>
+                        </div>
+                    </div>
+                    <div class="current-user-view" v-else>
+                        <!-- user image -->
+                        <div class="user-img">
+                            <img src="" alt="immagine avatar">
+                        </div>
+                        <!-- name and last access -->
+                        <div class="user-text">
+                            <p>Username</p>
                             <p class="last-input">Ultimo messaggio inviato</p>
                         </div>
                     </div>
@@ -129,13 +140,13 @@
                 
                 <!-- main chat -->
                 <main class="current-chat">
-                    <div class="all-messages" v-if="element.visible === false">
+                    <div class="all-messages" >
 
-                        <div class="d-flex" :class="(messagesElement.status === 'sent') ? 'row-send' : 'row-receive'" v-for="(messagesElement, index) in element.messages">
-                            <div class="message" :class="(messagesElement.status === 'sent') ? 'send' : ''">
-                                <p>{{messagesElement.message}}</p>
+                        <div class="d-flex" :class="(element.status === 'sent') ? 'row-send' : 'row-receive'" v-for="(element, index) in contacts[activeElement].messages" v-if="activeElement === index">
+                            <div class="message" :class="(element.status === 'sent') ? 'send' : ''">
+                                <p class="overflow-vis">{{element.message}}</p>
                                 <div class="time-message">
-                                    {{messagesElement.date}}
+                                    {{element.date}}
                                 </div>
                             </div>
                         </div>
@@ -146,7 +157,7 @@
                 <!-- footer input message -->
                 <footer class="bottom-input d-flex align-items-center">
                     <i class="fa-regular fa-face-smile"></i>
-                    <input type="text" placeholder="Scrivi un messaggio" v-model="currentMessage" @keydown.enter="sendMessage(index)">
+                    <input type="text" placeholder="Scrivi un messaggio" v-model="currentMessage" @keydown.enter="sendMessage(activeElement)">
                     <i class="fa-solid fa-microphone"></i>
                 </footer>
 

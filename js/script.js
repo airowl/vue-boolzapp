@@ -3,13 +3,14 @@
 const app = new Vue({
     el: '#app',
     data: {
+        activeElement: 0,
         currentMessage: '',
         searchContact: '',
         contacts: [
             {
                 name: 'Michele',
                 avatar: '_1',
-                visible: false,
+                visible: true,
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -172,10 +173,18 @@ const app = new Vue({
     },
     methods: {
         clickToView(index){
-            this.contacts.forEach(element => {
-                element.visible = true;
-            });
-            this.contacts[index].visible = false;
+            //this.contacts.forEach(element => {
+            //    element.visible = true;
+            //});
+            //for (let i = 0; i < this.contacts.length; i++) {
+            //    this.contacts[i].visible = true;
+            //}
+            //this.contacts[index].visible = true;
+            
+            //this.contacts[index].visible = false;
+            this.activeElement = index;
+            console.log(index);
+
         },
         sendMessage(index){
             const messageObject = {

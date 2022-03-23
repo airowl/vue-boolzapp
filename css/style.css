@@ -29,6 +29,10 @@ i{
     font-size: 1.2rem;
 }
 
+.overflow-vis{
+    overflow: visible;
+}
+
 .d-flex{
     display: flex;
 }
