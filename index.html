@@ -80,7 +80,7 @@
                     <!-- USER LIST -->
                     <ul class="user-list">
                         <!-- template for the users -->
-                        <li class="user d-flex justify-content-between" :class="(activeElement === index) ? 'active' : ''" v-for="(element, index) in searchUserContact()" @click="clickToView(index)">
+                        <li class="user d-flex justify-content-between" :class="(activeElement === index) ? 'active' : ''" v-for="(element, index) in searchUserContact()" @click="clickToView(index)" v-if="">
                             <!-- chat user -->
                             <div class="single-user d-flex">
                                 <!-- image user -->
@@ -142,7 +142,7 @@
                 <main class="current-chat">
                     <div class="all-messages" >
 
-                        <div class="d-flex" :class="(element.status === 'sent') ? 'row-send' : 'row-receive'" v-for="(element, index) in contacts[activeElement].messages" v-if="activeElement === index">
+                        <div class="d-flex" :class="(element.status === 'sent') ? 'row-send' : 'row-receive'" v-for="(element, index) in contacts[activeElement].messages">
                             <div class="message" :class="(element.status === 'sent') ? 'send' : ''">
                                 <p class="overflow-vis">{{element.message}}</p>
                                 <div class="time-message">

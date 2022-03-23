@@ -3,7 +3,7 @@
 const app = new Vue({
     el: '#app',
     data: {
-        activeElement: 0,
+        activeElement: undefined, //! vorrei metterlo undefined perchè se no non mi funziona la barra di ricerca
         currentMessage: '',
         searchContact: '',
         contacts: [
