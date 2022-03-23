@@ -3,7 +3,7 @@
 const app = new Vue({
     el: '#app',
     data: {
-        activeElement: undefined, //! vorrei metterlo undefined perchè se no non mi funziona la barra di ricerca
+        activeElement: 0, //! vorrei metterlo undefined perchè se no non mi funziona la barra di ricerca
         currentMessage: '',
         searchContact: '',
         contacts: [
@@ -186,10 +186,11 @@ const app = new Vue({
             console.log(index);
 
         },
-        sendMessage(index){
+
+        sendMessage(index, messageInput){
             const messageObject = {
                 date: '10/01/2020 15:50:00',
-                message: this.currentMessage,
+                message: messageInput,
                 status: 'sent'
             }
             this.contacts[index].messages.push(messageObject);
@@ -204,6 +205,7 @@ const app = new Vue({
                 this.contacts[index].messages.push(messageObjectBot);
             }, 1000);
         },
+
         searchUserContact(){
             return this.contacts.filter(element => {
                 return element.name.toLowerCase().includes(this.searchContact);

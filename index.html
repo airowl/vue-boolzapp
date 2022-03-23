@@ -157,7 +157,7 @@
                 <!-- footer input message -->
                 <footer class="bottom-input d-flex align-items-center">
                     <i class="fa-regular fa-face-smile"></i>
-                    <input type="text" placeholder="Scrivi un messaggio" v-model="currentMessage" @keydown.enter="sendMessage(activeElement)">
+                    <input type="text" placeholder="Scrivi un messaggio" v-model="currentMessage" @keydown.enter="sendMessage(activeElement, currentMessage)">
                     <i class="fa-solid fa-microphone"></i>
                 </footer>
 
