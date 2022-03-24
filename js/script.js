@@ -195,11 +195,17 @@ const app = new Vue({
             }, 1000);
         },
 
-        searchUserContact(){
-            //this.activeElement = undefined;
-            return this.contacts.filter(element => {
-                return element.name.toLowerCase().includes(this.searchContact);
-                
+        filterContact(){
+            const self = this;
+
+            // eseguo un foreach per prendere ogni element dell'array di oggetti contacts
+            self.contacts.forEach(element => {
+                // faccio un condizione per contollare se l'input che ha inserito l'utente è incluso nell'array di oggetti (più specificamente nel NOME)
+                if (element.name.toLowerCase().includes(self.searchContact.toLowerCase().trim())) { // se lo trovo
+                    element.visible = true;
+                } else {
+                    element.visible = false;
+                }
             });
         },
 

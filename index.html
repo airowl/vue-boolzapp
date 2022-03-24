@@ -73,13 +73,13 @@
                         <span class="icon-search">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </span>
-                        <input type="search" placeholder="Cerca o inizia una nuova chat" v-model="searchContact">
+                        <input type="search" placeholder="Cerca o inizia una nuova chat" v-model="searchContact" @keyup="filterContact()">
                     </div>
 
                     <!-- USER LIST -->
                     <ul class="user-list">
                         <!-- template for the users -->
-                        <li class="user d-flex justify-content-between" :class="(activeElement === index) ? 'active' : ''" v-for="(element, index) in searchUserContact()" @click="clickToView(index)">
+                        <li class="user d-flex justify-content-between" :class="(activeElement === index) ? 'active' : ''" v-for="(element, index) in contacts" @click="clickToView(index)" v-if="element.visible === true">
                             <!-- chat user -->
                             <div class="single-user d-flex">
                                 <!-- image user -->
