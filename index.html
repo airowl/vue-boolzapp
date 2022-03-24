@@ -63,7 +63,6 @@
                         <p>Ricevi notifiche di nuovi messaggi</p>
                         <p class="second-text">Attiva notifiche desktop</p>
                     </div>
-
                 </div>
 
                 <!-- DYNAMIC SECTION -->
@@ -80,7 +79,7 @@
                     <!-- USER LIST -->
                     <ul class="user-list">
                         <!-- template for the users -->
-                        <li class="user d-flex justify-content-between" :class="(activeElement === index) ? 'active' : ''" v-for="(element, index) in searchUserContact()" @click="clickToView(index)" v-if="">
+                        <li class="user d-flex justify-content-between" :class="(activeElement === index) ? 'active' : ''" v-for="(element, index) in searchUserContact()" @click="clickToView(index)">
                             <!-- chat user -->
                             <div class="single-user d-flex">
                                 <!-- image user -->

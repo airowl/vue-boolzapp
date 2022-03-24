@@ -173,18 +173,7 @@ const app = new Vue({
     },
     methods: {
         clickToView(index){
-            //this.contacts.forEach(element => {
-            //    element.visible = true;
-            //});
-            //for (let i = 0; i < this.contacts.length; i++) {
-            //    this.contacts[i].visible = true;
-            //}
-            //this.contacts[index].visible = true;
-            
-            //this.contacts[index].visible = false;
             this.activeElement = index;
-            console.log(index);
-
         },
 
         sendMessage(index, messageInput){
@@ -207,14 +196,17 @@ const app = new Vue({
         },
 
         searchUserContact(){
+            //this.activeElement = undefined;
             return this.contacts.filter(element => {
                 return element.name.toLowerCase().includes(this.searchContact);
+                
             });
-        }
+        },
+
     }
 });
 
 /**
  * quando digito
- * la funziona deve fare un check se l'input che ho scritto si trova nell'array
+ * la funziona deve fare un check se l'input che ho scritto si trova nell'array e darà un risultato (array di oggetti da generare)
  */
